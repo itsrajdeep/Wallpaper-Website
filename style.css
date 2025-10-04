@@ -1,0 +1,413 @@
+/* ---------- ROOT VARIABLES ---------- */
+:root {
+  --bg-color: #0e0e0e;
+  --text-color: #ffffff;
+  --accent-color: #00ffd5; /* neon cyan */
+  --border-color: #222;
+  --element-bg: #1a1a1a;
+  --font-main: "Poppins", sans-serif;
+}
+
+/* ---------- GLOBAL STYLES ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  line-height: 1.5;
+}
+
+/* ---------- HEADER (MODIFIED) ---------- */
+header {
+  background-color: var(--element-bg);
+  padding: 0.5rem 5%; /* Reduced vertical padding */
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* User section (MODIFIED) */
+.user-section {
+  display: flex; /* Kept flex to align items in a row */
+  align-items: center;
+  gap: 1.5rem; /* Increased gap for spacing */
+}
+
+.user-section a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.user-section a:hover {
+  color: var(--accent-color);
+}
+
+.user-icon {
+  font-size: 1.8rem;
+  color: purple; /* As per your previous design */
+}
+
+
+/* ---------- HERO SECTION (MODIFIED) ---------- */
+.hero-section {
+    text-align: center; /* This will center both the title and search bar */
+    padding: 0.2rem 1rem;   
+}
+
+.hero-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* This adds space between the title and the search bar below it */
+}
+
+.search-input {
+    width: 100%;
+    max-width: 600px; /* Control the search bar's size */
+    padding: 0.9rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: #2a2a2a;
+    color: var(--text-color);
+}
+
+/* ---------- CATEGORIES (MODIFIED) ---------- */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Increased gap to spread them out */
+  margin: 2.5rem 0;
+}
+
+.categories button {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  padding: 0.7rem 1.8rem; /* Increased padding for bigger buttons */
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem; /* Increased font size */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.categories button:hover,
+.categories .active-btn {
+  background-color: var(--accent-color);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* ---------- WALLPAPER GRID (No Changes)---------- */
+/* ---------- WALLPAPER GRID ---------- */
+.wallpaper-grid {
+  display: grid;
+  /* This creates a responsive grid with columns that are at least 280px wide */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; /* This adds space between the images */
+  padding: 0 5%; /* Aligns the grid with the rest of the content */
+}
+
+.wallpaper-item {
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    position: relative;
+
+    /* Initial state for animation */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Final state for animation */
+.wallpaper-item.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+.wallpaper-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the most important part. It zooms and crops the image to fill the box without stretching. */
+  transition: transform 0.3s ease;
+}
+
+.wallpaper-item img:hover {
+  transform: scale(1.05); /* A nice little zoom effect on hover */
+}
+
+/* ---------- LOAD MORE BUTTON (No Changes)---------- */
+.load-more {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.load-more-btn {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* ---------- FOOTER (No Changes)---------- */
+footer {
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ---------- RESPONSIVE (MODIFIED) ---------- */
+@media (max-width: 768px) {
+  /* Removed the column-direction for the header to keep it in-line */
+  header {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Stack hero items on smaller screens */
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start; /* Aligns items to the left */
+    gap: 1rem;
+  }
+
+  .search-form {
+    max-width: none; /* Allows search to be full width */
+  }
+
+  .site-name {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ---------- LOGIN PAGE STYLES ---------- */
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    /* --- New Background Styles --- */
+    /* IMPORTANT: Change 'path/to/your/image.jpg' to the actual path of your image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('login_back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+}
+
+.login-form {
+    background-color: var(--element-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.login-form .logo-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.login-form h2 {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: #000;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.login-form button:hover {
+    opacity: 0.9;
+}
+
+.form-links {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-links a:hover {
+    color: var(--accent-color);
+}
+
+
+.form-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+}   
+
+
+/* ---------- ABOUT PAGE STYLES ---------- */
+
+.about-body {
+    /* You can use the same background as your login page, or a different one! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background still on scroll */
+    padding: 2rem;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    background-color: rgba(14, 14, 14, 0.85); /* Slightly more transparent */
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px); /* Creates a cool "frosted glass" effect */
+    color: var(--text-secondary);
+}
+
+.about-container h1 {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.about-container h2 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 3rem;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--accent-color);
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.05);
+}
+
+/* Style for the download button */
+.download-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show the download button when hovering over the wallpaper item */
+.wallpaper-item:hover .download-btn {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WallArtevo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        
+        <h1 class="site-name">WallArtevo</h1>
+      </div>
+
+      <div class="user-section">
+        <a href="about.html">ABOUT</a>
+        <a href="login.html">LOG IN</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <h2>Experience 4k Wallpapers</h2>
+        <form class="search-form">
+          <input
+            type="text"
+            placeholder="search for free Wallpapers"
+            class="search-input"
+          />
+        </form>
+      </section>
+
+      <section class="gallery-section">
+        <div class="categories">
+          <button class="cat-btn">TOP</button>
+          <button class="cat-btn">ABSTRACT</button>
+          <button class="active-btn">NATURE</button>
+          <button class="cat-btn">DARK</button>
+          <button class="cat-btn">ANIMAL</button>
+        </div>
+        <div class="wallpaper-grid" id="wallpaper-grid-container"></div>
+
+        <div class="load-more">
+          <button class="load-more-btn">LOAD MORE WALLPAPERS</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 WallArtevo. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
